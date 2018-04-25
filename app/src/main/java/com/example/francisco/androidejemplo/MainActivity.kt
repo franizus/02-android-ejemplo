@@ -1,10 +1,12 @@
 package com.example.francisco.androidejemplo
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -15,9 +17,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        texto_central.text = "Adios"
+        /*texto_central.text = "Adios"
         var valorTextoCentral: CharSequence = texto_central.text
-        Log.i("clase", "El texto que se muestra es ${texto_central.text} $valorTextoCentral")
+        Log.i("clase", "El texto que se muestra es ${texto_central.text} $valorTextoCentral")*/
 
         setSupportActionBar(toolbar)
         Log.e("clase", "Esto es un error")
@@ -25,6 +27,10 @@ class MainActivity : AppCompatActivity() {
         Log.d("clase", "Esto es un debug")
         Log.i("clase", "Esto es un info")
         Log.v("clase", "Esto es un verbose")
+
+        boton_navegar_actividad_dos.setOnClickListener { v: View ->
+            irAActividadDos()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -41,5 +47,10 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    fun irAActividadDos() {
+        val intent = Intent(this, actividadDos::class.java)
+        startActivity(intent)
     }
 }
