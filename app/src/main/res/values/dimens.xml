@@ -1,3 +1,4 @@
 <resources>
+    <dimen name="margen_texto">20dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 </resources>
