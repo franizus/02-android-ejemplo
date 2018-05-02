@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
 
     fun irAActividadDos() {
         val intent = Intent(this, actividadDos::class.java)
+        intent.putExtra("nombre", "Francisco Izurieta")
         startActivity(intent)
     }
 }
