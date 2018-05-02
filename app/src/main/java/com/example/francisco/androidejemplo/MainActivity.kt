@@ -1,7 +1,11 @@
 package com.example.francisco.androidejemplo
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
@@ -16,12 +20,25 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
 
         /*texto_central.text = "Adios"
         var valorTextoCentral: CharSequence = texto_central.text
-        Log.i("clase", "El texto que se muestra es ${texto_central.text} $valorTextoCentral")*/
+        Log.i("clase", "El texto que se muestra es ${texto_central.text} $valorTextoCentra*/
 
-        setSupportActionBar(toolbar)
+        val permisosDeCamara = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+        val tienePermisosDeCamara = permisosDeCamara != PackageManager.PERMISSION_GRANTED
+        Log.i("tag", "Crear permiso ${permisosDeCamara}")
+        if (tienePermisosDeCamara) {
+            Log.i("tag", "Entrando a pedir permiso")
+            ActivityCompat.requestPermissions(this,
+                    arrayOf(Manifest.permission.CAMERA,
+                            Manifest.permission.SEND_SMS),
+                    RESULTADO_PERMISO_CAMARA)
+        } else {
+            Log.i("tag", "Ya tiene este permiso")
+        }
+
         Log.e("clase", "Esto es un error")
         Log.w("clase", "Esto es un warning")
         Log.d("clase", "Esto es un debug")
@@ -53,5 +70,17 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, actividadDos::class.java)
         intent.putExtra("nombre", "Francisco Izurieta")
         startActivity(intent)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        when (requestCode) {
+            RESULTADO_PERMISO_CAMARA -> {
+                Log.i("etiqueta", "Tiene permisos de camara")
+            }
+        }
+    }
+
+    companion object {
+        val RESULTADO_PERMISO_CAMARA = 1
     }
 }
