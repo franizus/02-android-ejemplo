@@ -47,4 +47,41 @@
         app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="@+id/boton_dos"
         app:layout_constraintTop_toBottomOf="@+id/boton_dos" />
+
+    <Button
+        android:id="@+id/boton_contacto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Contacto"
+        app:layout_constraintBottom_toTopOf="@+id/boton_dos"
+        app:layout_constraintEnd_toEndOf="@+id/boton_dos"
+        app:layout_constraintHorizontal_bias="0.764"
+        app:layout_constraintStart_toStartOf="@+id/boton_dos" />
+
+    <TextView
+        android:id="@+id/text_view_nombre_contacto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_view_telefono_contacto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/text_view_nombre_contacto"
+        app:layout_constraintStart_toEndOf="@+id/text_view_nombre_contacto"
+        app:layout_constraintTop_toTopOf="@+id/text_view_nombre_contacto"
+        app:layout_constraintVertical_bias="0.0" />
 </android.support.constraint.ConstraintLayout>
