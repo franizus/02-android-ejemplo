@@ -48,6 +48,14 @@ class MainActivity : AppCompatActivity() {
         boton_navegar_actividad_dos.setOnClickListener { v: View ->
             irAActividadDos()
         }
+
+        boton_spinner.setOnClickListener { v: View ->
+            irAActividadSpinner()
+        }
+
+        boton_crear_usuario.setOnClickListener { v: View ->
+            irAActividadCrearUsuario()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -69,6 +77,16 @@ class MainActivity : AppCompatActivity() {
     fun irAActividadDos() {
         val intent = Intent(this, actividadDos::class.java)
         intent.putExtra("nombre", "Francisco Izurieta")
+        startActivity(intent)
+    }
+
+    fun irAActividadSpinner() {
+        val intent = Intent(this, SpinnerActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun irAActividadCrearUsuario() {
+        val intent = Intent(this, CrearUsuarioActivity::class.java)
         startActivity(intent)
     }
 
